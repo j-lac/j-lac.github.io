@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<section class="hero-news on-dark" aria-labelledby="news-heading">
+  <div class="hero-news__inner">
+    <h2 id="news-heading" class="section-heading section-heading--on-dark">お知らせ</h2>
+    {%- assign news_sorted = site.news | sort: "date" | reverse -%}
+    {% if news_sorted.size > 0 %}
+    <dl class="news">
+      {% for item in news_sorted limit: 8 %}
+        <div class="news__item">
+          <dt>{{ item.date | date: "%Y年%-m月%-d日" }}</dt>
+          <dd><a class="news__link" href="{{ item.url | relative_url }}">{{ item.title }}</a></dd>
+        </div>
+      {% endfor %}
+    </dl>
+    {% else %}
+    <p>お知らせはまだありません。</p>
+    {% endif %}
+  </div>
+</section>
+
+{{ content }}

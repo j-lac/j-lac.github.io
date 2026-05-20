@@ -1,0 +1,44 @@
+# ===================================================================
+# サイトナビゲーション構造
+# -------------------------------------------------------------------
+# このファイルがナビバーの並び順とドロップダウン構造を決めます。
+# 修正したい場合はこのファイルを書き換えるだけで OK（HTML 編集不要）。
+#
+# - label : ナビに表示される文字
+# - slug  : 現在ページ判定用の英小文字キー（重複不可・URLとは別物）
+# - href  : リンク先 URL（先頭のスラッシュは必須）
+# - children: ドロップダウン項目（任意）
+# ===================================================================
+
+- label: Home
+  slug:  home
+  href:  /
+
+- label: About
+  slug:  about
+  href:  /about/
+  children:
+    - label: MISSION・VISION・VALUE
+      href:  /about/mvv/
+    - label: メンバー
+      href:  /about/member/
+
+- label: Shared Infrastructure
+  slug:  shared
+  href:  /shared/
+  children:
+    - label: オープンデータベース
+      href:  /shared/database/
+    - label: 教育用デモデータ
+      href:  /shared/demo/
+
+- label: Our Work
+  slug:  work
+  href:  /work/
+  children:
+    - label: セミナーのご案内
+      href:  /work/seminar/
+    - label: 論文
+      href:  /work/papers/
+    - label: 研究助成の獲得
+      href:  /work/grants/

@@ -1,0 +1,13 @@
+{%- assign filtered = site.news | where: "category", include.category | sort: "date" | reverse -%}
+{% if filtered.size > 0 %}
+<ul class="news-list">
+  {% for item in filtered %}
+  <li class="news-list__item">
+    <time class="news-list__date" datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%Y年%-m月%-d日" }}</time>
+    <a class="news-list__link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="news-list__empty">該当する{{ include.label | default: "情報" }}はまだ登録されていません。</p>
+{% endif %}

@@ -1,0 +1,13 @@
+---
+layout: subpage
+---
+<p class="news-detail__meta">
+  <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y年%-m月%-d日" }}</time>
+  {% if page.category %}
+    <span class="news-detail__cat news-detail__cat--{{ page.category }}">{{ page.category }}</span>
+  {% endif %}
+</p>
+
+{{ content }}
+
+<p class="news-detail__back"><a href="{{ '/' | relative_url }}">← Home に戻る</a></p>

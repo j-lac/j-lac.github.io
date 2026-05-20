@@ -1,0 +1,26 @@
+# ===================================================================
+# メンバー名簿（/about/member/ ページに自動表示）
+# -------------------------------------------------------------------
+# 各メンバーは name + affiliation + researchmap (任意) の 3 行。
+# researchmap: が空の場合は名前がリンクにならずテキスト表示。
+# 追加・削除はリスト項目（"- name: …" から始まるブロック）を増減するだけ。
+# ===================================================================
+
+representatives:
+  - name: 吉田彬人
+    affiliation: 名古屋大学大学院医学系研究科　作業療法科学
+    researchmap: https://researchmap.jp/yosh.akihito
+
+members:
+  - name: 岡部格明
+    affiliation: 関西大学　ビジネスデータサイエンス学部
+    researchmap: https://researchmap.jp/mokab
+  - name: 久木崎航
+    affiliation: 熊本保健科学大学　保健科学部
+    researchmap: https://researchmap.jp/waku
+  - name: 田中陽一
+    affiliation: 兵庫医科大学　リハビリテーション学部
+    researchmap: https://researchmap.jp/y011naka6
+  - name: 早崎涼太
+    affiliation: 札幌医科大学　保健医療学部
+    researchmap: https://researchmap.jp/mrs1226

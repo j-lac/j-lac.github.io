@@ -1,0 +1,44 @@
+title: J-LAC
+description: Japanese study for Lifestyle Activity and Context
+lang: ja
+
+# 問い合わせフォーム URL（Google Form）
+# Google Form の公開 URL を貼り付けてください。
+# URL が空欄 or "#" のときはボタンが現状ページ内リンクになります（非有効化）。
+contact_form_url: "#"
+
+# お知らせコレクション
+# _news/ ディレクトリの各 .md ファイルが 1 件のお知らせになります。
+# 詳細ページは /news/<slug>/ の URL で自動生成。
+collections:
+  news:
+    output: true
+    permalink: /news/:name/
+
+# 未来日付のお知らせも公開する（セミナー予定の事前告知等のため）
+future: true
+
+defaults:
+  - scope:
+      path: ""
+      type: news
+    values:
+      layout: news
+      page: news
+
+# Jekyll が出力に含めないファイル
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - .github
+  - node_modules
+  - _samples       # 公開前のサンプル素材置き場（_ プレフィックスでもデフォルト除外されるが明示）
+
+# Markdown プロセッサ
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false

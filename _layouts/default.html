@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'ja' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.title }}{% if page.title %} | {{ page.title }}{% endif %}</title>
+  {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body data-page="{{ page.page }}">
+  <header class="site-header">
+    <a href="{{ '/' | relative_url }}" class="site-header__logo" aria-label="J-LAC ホームへ">
+      <img src="{{ '/assets/hero.png' | relative_url }}" alt="J-LAC — Japanese study for Lifestyle Activity and Context">
+    </a>
+    {% include nav.html %}
+  </header>
+
+  <main class="site-main">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <section class="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" class="section-heading">Contact Us</h2>
+      <p>Japanese study for Lifestyle Activity and Context 事務局</p>
+      <a class="contact__button" href="{{ site.contact_form_url | default: '#' }}"{% if site.contact_form_url and site.contact_form_url != '#' %} target="_blank" rel="noopener"{% endif %}>問い合わせフォーム ＞</a>
+    </section>
+    <p class="copyright">© {{ site.title }}</p>
+  </footer>
+
+  <script src="{{ '/assets/nav.js' | relative_url }}" defer></script>
+</body>
+</html>

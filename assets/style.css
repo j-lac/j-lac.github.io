@@ -1,0 +1,535 @@
+:root {
+  --color-vermilion:     #FF4600;
+  --color-gold:          #BF9B30;
+  --color-iron-navy:     #172436;
+  --color-white:         #FFFFFF;
+  --color-bg:            #FFFFFF;
+  --color-bg-dark:       var(--color-iron-navy);
+  --color-rule:          rgba(23, 36, 54, 0.15);
+  --color-rule-on-dark:  rgba(255, 255, 255, 0.25);
+  --color-muted:         rgba(23, 36, 54, 0.55);
+  --color-muted-on-dark: rgba(255, 255, 255, 0.55);
+
+  --fs-body:    clamp(15px, 1.4vw + 8px, 17px);
+  --fs-heading: clamp(18px, 2vw + 8px, 22px);
+  --fs-banner:  clamp(22px, 3vw + 10px, 34px);
+
+  --font-sans: "メイリオ", Meiryo, "Hiragino Kaku Gothic ProN",
+               "Hiragino Sans", "Yu Gothic", "Yu Gothic UI",
+               "Noto Sans JP", system-ui, sans-serif;
+
+  --max-width: 980px;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-iron-navy);
+  background: var(--color-bg);
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  -webkit-text-size-adjust: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--color-iron-navy); }
+
+.on-dark, .on-dark a { color: var(--color-white); }
+
+
+/* ---------- Header ---------- */
+
+.site-header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.site-header__logo {
+  display: block;
+  text-decoration: none;
+}
+
+.site-header__logo img {
+  width: 100%;
+  height: auto;
+}
+
+
+/* ---------- Navigation ---------- */
+
+.site-nav-wrap {
+  margin-top: 0.5rem;
+}
+
+.site-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+  justify-content: space-around;
+  position: relative;
+}
+
+.site-nav__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.site-nav__link {
+  display: inline-block;
+  padding: 0.6em 0.4em;
+  color: var(--color-iron-navy);
+  text-decoration: none;
+  font-size: 1.05rem;
+  border-bottom: 2px solid var(--color-vermilion);
+  transition: opacity 0.15s ease;
+}
+
+.site-nav__link:hover,
+.site-nav__link:focus {
+  opacity: 0.7;
+}
+
+.dropdown-toggle {
+  appearance: none;
+  background: none;
+  border: 0;
+  color: var(--color-iron-navy);
+  cursor: pointer;
+  padding: 0 0.3em;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.dropdown {
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 14rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-rule);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  z-index: 50;
+}
+
+.dropdown li {
+  list-style: none;
+}
+
+.dropdown__link {
+  display: block;
+  padding: 0.6em 1em;
+  color: var(--color-iron-navy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-vermilion);
+  margin: 0 0.6rem;
+  font-size: 0.95rem;
+}
+
+.dropdown li:last-child .dropdown__link { border-bottom: none; }
+
+.dropdown__link:hover,
+.dropdown__link:focus {
+  background: rgba(255, 70, 0, 0.06);
+}
+
+/* PC: hover / focus でドロップダウン表示 */
+@media (hover: hover) and (min-width: 721px) {
+  .has-dropdown:hover > .dropdown,
+  .has-dropdown:focus-within > .dropdown {
+    display: block;
+  }
+  .has-dropdown:hover > .dropdown[hidden],
+  .has-dropdown:focus-within > .dropdown[hidden] {
+    display: block;
+  }
+  .dropdown-toggle {
+    pointer-events: none;
+  }
+}
+
+
+/* ---------- Main ---------- */
+
+.site-main {
+  flex: 1 0 auto;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+
+/* ---------- Section heading (●見出し) ---------- */
+
+.section-heading {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--color-vermilion);
+}
+
+.section-heading::before {
+  content: "●";
+  color: var(--color-vermilion);
+  margin-right: 0.4em;
+  font-size: 0.9em;
+}
+
+.section-heading--on-dark {
+  color: var(--color-white);
+}
+
+
+/* ---------- Home: hero-news (鉄紺 + 富士山) ---------- */
+
+.hero-news {
+  background-color: var(--color-iron-navy);
+  background-image: url("/assets/fuji.png");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: auto 90%;
+  min-height: 360px;
+  padding: 2rem 0;
+  margin-top: 0.5rem;
+}
+
+.hero-news__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.hero-news .news {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ---------- News list ---------- */
+
+.news {
+  margin: 0;
+  padding: 0;
+}
+
+.news__item {
+  display: grid;
+  grid-template-columns: 11em 1fr;
+  gap: 0 1rem;
+  padding: 0.9rem 0.3rem;
+  border-top: 1px dotted var(--color-rule);
+  align-items: baseline;
+}
+
+.news__item:first-child { border-top: none; }
+
+.news dt {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.news dd { margin: 0; }
+
+.on-dark .news__item {
+  border-top-color: var(--color-rule-on-dark);
+}
+
+/* お知らせのタイトル行（リンク化）*/
+.news__link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.news__link:hover,
+.news__link:focus {
+  color: var(--color-vermilion);
+  border-bottom-color: var(--color-vermilion);
+}
+.on-dark .news__link:hover,
+.on-dark .news__link:focus {
+  color: var(--color-vermilion);
+  border-bottom-color: var(--color-vermilion);
+}
+
+
+/* ---------- News detail page ---------- */
+
+.news-detail__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  margin: 0 0 1.5rem;
+  font-size: 0.95rem;
+}
+.news-detail__meta time {
+  font-variant-numeric: tabular-nums;
+  color: var(--color-muted);
+}
+.news-detail__cat {
+  display: inline-block;
+  padding: 0.1em 0.7em;
+  border: 1px solid var(--color-rule);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+  color: var(--color-iron-navy);
+  background: rgba(255, 255, 255, 0.6);
+}
+.news-detail__cat--seminar { border-color: var(--color-vermilion); color: var(--color-vermilion); }
+.news-detail__cat--paper   { border-color: var(--color-gold);      color: var(--color-gold); }
+.news-detail__cat--grant   { border-color: var(--color-gold);      color: var(--color-gold); background: rgba(191,155,48,0.08); }
+.news-detail__back {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px dotted var(--color-rule);
+  font-size: 0.95rem;
+}
+
+
+/* ---------- News list (category-filtered) ---------- */
+
+.news-list {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+}
+.news-list__item {
+  display: grid;
+  grid-template-columns: 11em 1fr;
+  gap: 0 1rem;
+  padding: 0.7rem 0.2rem;
+  border-top: 1px dotted var(--color-rule);
+  align-items: baseline;
+}
+.news-list__item:first-child { border-top: none; }
+.news-list__date {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--color-muted);
+}
+.news-list__link {
+  color: var(--color-iron-navy);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+.news-list__link:hover,
+.news-list__link:focus {
+  border-bottom-color: var(--color-vermilion);
+}
+.news-list__empty {
+  margin: 1rem 0;
+  color: var(--color-muted);
+}
+
+
+/* ---------- Subpage (赤三角バナー) ---------- */
+
+.subpage {
+  max-width: var(--max-width);
+  margin: 1.5rem auto 3rem;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.subpage__banner {
+  background: url("/assets/banner.png") center/100% 100% no-repeat;
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+}
+
+.subpage__title {
+  font-size: var(--fs-banner);
+  font-weight: 700;
+  color: var(--color-iron-navy);
+  letter-spacing: 0.02em;
+}
+
+.subpage__body {
+  padding: 1.5rem 0.2rem;
+}
+
+.subpage__body h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 1.6rem 0 0.4rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--color-gold);
+}
+
+.subpage__body h2:first-child { margin-top: 0; }
+
+.subpage__body h3 {
+  font-size: 1.05rem;
+  margin: 1.2rem 0 0.4rem;
+}
+
+.subpage__body ul,
+.subpage__body ol {
+  padding-left: 1.4em;
+}
+
+.subpage__body li { margin: 0.15rem 0; }
+
+.subpage__body a {
+  color: var(--color-iron-navy);
+  text-decoration: underline;
+  text-decoration-color: var(--color-vermilion);
+}
+
+
+/* ---------- Collaborator grid (47 都道府県) ---------- */
+
+.japan-map {
+  margin: 1rem 0;
+}
+
+.japan-map__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.prefecture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45em 0.4em;
+  border: 1px solid rgba(23, 36, 54, 0.15);
+  border-radius: 8px;
+  color: rgba(23, 36, 54, 0.35);
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.prefecture--on {
+  color: var(--color-iron-navy);
+  border-color: var(--color-vermilion);
+  border-width: 1.5px;
+  background: var(--color-white);
+  font-weight: 600;
+}
+
+.japan-map__caption {
+  margin: 0.6rem 0 0;
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+
+/* ---------- Footer / Contact ---------- */
+
+.site-footer {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  flex-shrink: 0;
+}
+
+.contact p { margin: 1rem 0; }
+
+.contact__button {
+  display: inline-block;
+  background: var(--color-iron-navy);
+  color: var(--color-white);
+  text-decoration: none;
+  padding: 0.75em 1.6em;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  transition: opacity 0.15s ease;
+}
+
+.contact__button:hover,
+.contact__button:focus { opacity: 0.85; }
+
+.copyright {
+  margin-top: 2.5rem;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+
+/* ---------- Responsive (≤720px) ---------- */
+
+@media (max-width: 720px) {
+  .site-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.15rem;
+  }
+  .site-nav__item {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .site-nav__link {
+    padding: 0.6em 0.4em;
+    font-size: 1rem;
+  }
+  .dropdown-toggle {
+    font-size: 1rem;
+    padding: 0.4em 0.6em;
+  }
+  .dropdown {
+    position: static;
+    box-shadow: none;
+    border-left: none;
+    border-right: none;
+    width: 100%;
+  }
+  .dropdown__link {
+    padding: 0.6em 1.2em;
+  }
+  .news__item,
+  .news-list__item {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+    padding: 0.8rem 0.3rem;
+  }
+  .hero-news {
+    background-size: 70% auto;
+    background-position: right bottom;
+    min-height: 280px;
+  }
+  .japan-map__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .prefecture { font-size: 0.85rem; }
+}
+
+@media (max-width: 420px) {
+  .japan-map__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

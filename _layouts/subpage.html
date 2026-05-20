@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<section class="subpage">
+  <div class="subpage__banner" role="img" aria-label="{{ page.heading | default: page.title }}">
+    <span class="subpage__title">{{ page.heading | default: page.title }}</span>
+  </div>
+  <div class="subpage__body">
+    {{ content }}
+  </div>
+</section>
